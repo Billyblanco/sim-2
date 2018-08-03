@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 
   addHouse = () => {
     const { name, address, city, state, zip } = this.props
+    console.log('PROPPPPS', this.props)
     const newHouse = { name, address, city, state, zip }
     axios.post('/api/houses', newHouse).then(results => {
       this.updateHouses(results.data)
