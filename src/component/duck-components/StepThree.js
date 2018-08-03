@@ -21,7 +21,7 @@ import { connect } from 'react-redux'
    render () {
      return (
    <div>
-     <button>Cancel</button>
+  
 
      <h1>Add New Listing</h1>
      <h4>Recommemnded Rend: $0</h4>

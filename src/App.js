@@ -9,13 +9,6 @@ class App extends Component {
     response: ''
   }
 
-  // componentDidMount() {
-  //   axios.get('/api/products').then( res => {
-  //     this.setState({
-  //       response: res.data
-  //     })
-  //   })
-  // }
 
   render() {
     return (

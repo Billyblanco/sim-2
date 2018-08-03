@@ -27,17 +27,7 @@ class Dashboard extends Component {
     })
   }
 
-  // addHouse = () => {
-  //   const { name, address, city, state, zip } = this.state
-  //   const newHouse = { name, address, city, state, zip }
-  //   axios.post('/api/houses', newHouse).then(results => {
-  //     this.updateHouses(results.data)
-  //   })
-  // }
-
-  // updateHouses = ( houses ) => {
-  //   this.setState( {houses} )
-  // }
+  
 
   render() {
     return (
@@ -56,7 +46,7 @@ class Dashboard extends Component {
             )
           })
         }
-          {/* <Link to="/"><button onClick={ () => {this.addHouse()}}>Complete</button></Link> */}
+          
       </div>
     )
   }

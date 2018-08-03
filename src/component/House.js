@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class  House extends Component {
   render () {
-    const { name, address, city, state, zipCode } = this.props.houses
+    const { name, address, city, state, zip, img, mortgage, rent } = this.props.houses
   return (
     
     <div>
@@ -11,7 +11,10 @@ class  House extends Component {
       <p>{address}</p>
       <p>{city}</p>
       <p>{state}</p>
-      <p>{zipCode}</p>
+      <p>{zip}</p>
+      <p>{img}</p>
+      <p>{mortgage}</p>
+      <p>{rent}</p>
       <div>
             <button onClick={ () => {this.props.delete(this.props.houses.id)}}>Delete</button>
         </div> 
