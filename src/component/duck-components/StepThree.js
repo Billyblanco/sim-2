@@ -1,11 +1,12 @@
  import React, { Component } from 'react'
  import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
  class StepThree extends Component {
 
   addHouse = () => {
-    const { name, address, city, state, zip } = this.state
+    const { name, address, city, state, zip } = this.props
     const newHouse = { name, address, city, state, zip }
     axios.post('/api/houses', newHouse).then(results => {
       this.updateHouses(results.data)
@@ -30,10 +31,22 @@ import axios from 'axios'
        <input />
 
        <Link to="/wizard/step2"><button>Previous Step</button></Link>
-       <Link to="/"><button onClick={ () => {this.props.addHouse()}}>Complete</button></Link>
+       <Link to="/"><button onClick={ () => {this.addHouse()}}>Complete</button></Link>
 
    </div>
      )
    }
  }
- export default StepThree;
+let mapStateToProps = state => {
+  return {
+    name: state.name,
+    address: state.address,
+    city: state.city,
+    state: state.state,
+    img: state.img,
+    mortgage: state.mortgage,
+    rent: state.rent
+  }
+}
+
+ export default connect(mapStateToProps)(StepThree);

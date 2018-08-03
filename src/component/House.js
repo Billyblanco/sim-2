@@ -6,7 +6,7 @@ class  House extends Component {
   return (
     
     <div>
-      <h1>HOUSES:</h1>
+      <h1>Home Listings:</h1>
       <p>{name}</p>
       <p>{address}</p>
       <p>{city}</p>

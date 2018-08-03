@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
-import Dashboard from '../Dashboard'
-import Wizard from '../Wizard'
 import { connect } from 'react-redux'
-
+import { updateName, updateAddress, updateCity, updateState, updateZip } from '../../ducks/reducer'
 
 class StepOne extends Component {
 constructor (){
@@ -46,26 +43,37 @@ handleZip = (e) => {
 }
 
 render() {
-  console.log(this.props)
+  let { updateName, updateAddress, updateCity, updateState, updateZip } = this.props
+  
   return (
     <div>
-     
+     <h1>Add New Listing</h1>
+
       <p>Property Name:</p>
-      <input value={this.state.name} onChange={this.handleName} />
+      <input type="text" placeholder="Property Name" 
+      onChange={ (e) => updateName(e.target.value)} />
+
       <p>Address:</p>
-      <input value={this.state.address} onChange={this.handleAddress} />
+      <input type="text" placeholder="Address" 
+      onChange={ (e) => updateAddress(e.target.value)} />
+
       <p>City:</p>
-      <input value={this.state.city} onChange={this.handleCity}/>
+      <input type="text" placeholder="City" 
+      onChange={ (e) => updateCity(e.target.value)}/>
+
       <p>State:</p>
-      <input value={this.state.state} onChange={this.handleState}/>
+      <input type="text" placeholder="State" 
+      onChange={ (e) => updateState(e.target.value)}/>
+
       <p>Zip:</p>
-      <input value={this.state.zip} onChange={this.handleZip}/>
+      <input type="number" placeholder="Zip" 
+      onChange={ (e) => updateZip(e.target.value)}/>
         
-      <Link to="/wizard/step2"><button>Next Step</button></Link>
+            <Link to="/wizard/step2"><button>Next Step</button></Link>
 
     </div>
       
-    )
+    ) 
   }
 }
 
@@ -78,4 +86,4 @@ let mapStateToProps = state => {
     zip: state.zip
   }
 }
-export default connect(mapStateToProps)(StepOne)
+export default connect(mapStateToProps, {updateName, updateAddress, updateCity, updateState, updateZip})(StepOne)
