@@ -8,7 +8,7 @@ class StepTwo extends Component {
     let { handleImg } = this.props 
     return (
   <div>
-    <p>Image Url:</p>
+    <p>Image Url:</p> 
       <input 
       onChange={ (e) => handleImg(e.target.value)} />
       

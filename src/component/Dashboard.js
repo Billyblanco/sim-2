@@ -34,7 +34,7 @@ class Dashboard extends Component {
       <div>
        
         DASHBOARD
-        
+        <br></br>
         <Link to="/wizard/step1"><button>Add New Property</button></Link>
         {
           this.state.houses.map( (houses, index) => {
