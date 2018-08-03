@@ -18,8 +18,10 @@ massive(process.env.CONNECTION_STRING).then( db => {
   console.log('ERR CONNECTING TO DATABASE', err)
 })
 
-app.get('/api/houses', controller.getHouses)
 
+app.get('/api/houses', controller.getHouses)
+app.post('/api/houses', controller.addHouse)
+app.delete('/api/houses/:id', controller.delete)
 
 const PORT = 5000
 app.listen(PORT, () => {

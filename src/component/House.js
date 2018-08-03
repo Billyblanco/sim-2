@@ -12,7 +12,9 @@ class  House extends Component {
       <p>{city}</p>
       <p>{state}</p>
       <p>{zipCode}</p>
-      <button>Delete Button</button>
+      <div>
+            <button onClick={ () => {this.props.delete(this.props.houses.id)}}>Delete</button>
+        </div> 
     </div>
   )
 }

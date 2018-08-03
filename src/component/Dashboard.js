@@ -19,6 +19,25 @@ class Dashboard extends Component {
       })
     })
   }
+  deleteHouse = (id) => {
+    axios.delete(`/api/houses/${id}`).then(results => {
+      this.setState({
+        houses: results.data
+      })
+    })
+  }
+
+  // addHouse = () => {
+  //   const { name, address, city, state, zip } = this.state
+  //   const newHouse = { name, address, city, state, zip }
+  //   axios.post('/api/houses', newHouse).then(results => {
+  //     this.updateHouses(results.data)
+  //   })
+  // }
+
+  // updateHouses = ( houses ) => {
+  //   this.setState( {houses} )
+  // }
 
   render() {
     return (
@@ -26,16 +45,18 @@ class Dashboard extends Component {
        
         DASHBOARD
         
-        <Link to="/wizard"><button>Add New Property</button></Link>
+        <Link to="/wizard/step1"><button>Add New Property</button></Link>
         {
           this.state.houses.map( (houses, index) => {
             return (
               < House houses={houses}
-              // key={houses.id} 
+              key={houses.id} 
+              delete={this.deleteHouse}
               />
             )
           })
         }
+          {/* <Link to="/"><button onClick={ () => {this.addHouse()}}>Complete</button></Link> */}
       </div>
     )
   }
